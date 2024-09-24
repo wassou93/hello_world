@@ -9,8 +9,8 @@ class Solution
 public:
     int longestCommonPrefix(std::vector<int> &arr1, std::vector<int> &arr2)
     {
-        int max_prefix = 0;
-        int current_max_prefix = 0;
+        int max_prefix_length = 0;
+        int current_max_prefix_length = 0;
         for (int i = 0; i < arr1.size(); ++i)
         {
             store_prefixes(arr1[i]);
@@ -18,10 +18,10 @@ public:
 
         for (int i = 0; i < arr2.size(); ++i)
         {
-            current_max_prefix = get_max_prefix(arr2[i]);
-            max_prefix = std::max(current_max_prefix, max_prefix);
+            current_max_prefix_length = get_max_prefix_length(arr2[i]);
+            max_prefix_length = std::max(current_max_prefix_length, max_prefix_length);
         }
-        return max_prefix;
+        return max_prefix_length;
     }
     void store_prefixes(int number)
     {
@@ -41,12 +41,12 @@ public:
             m /= 10;
         }
     }
-    int get_max_prefix(int number)
+    int get_max_prefix_length(int number)
     {
         int n = number;
         int m = 1;
         int prefix = 0;
-        int current_max_prefix = 0;
+        int current_max_prefix_length = 0, max_prefix_length = 0;
 
         while (n > 9)
         {
@@ -55,14 +55,15 @@ public:
         }
         while (m > 0 && number != prefix)
         {
+            ++current_max_prefix_length;
             prefix = number / m;
             if (this->prefixes.find(prefix) != this->prefixes.end())
             {
-                current_max_prefix = std::max(current_max_prefix, prefix);
+                max_prefix_length = std::max(current_max_prefix_length, max_prefix_length);
             }
             m /= 10;
         }
-        return current_max_prefix;
+        return max_prefix_length;
     }
 
 private:
