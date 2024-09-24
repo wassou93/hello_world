@@ -1,0 +1,43 @@
+# CMake build artifacts
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Compiled binary files
+*.out
+*.exe
+build/
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+
+# VSCode specific files
+.vscode/
+*.code-workspace
+
+# Other common ignores
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Additional common ignores for C++ projects
+*.a
+*.lib
+*.pdb
+*.idb
+*.ipch
+*.pch
+*.ilk
+*.suo
+*.user
+*.ncb
+*.sdf
+*.opensdf
+*.tlog
+*.lastbuildstate
